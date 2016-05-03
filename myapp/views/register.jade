@@ -1,0 +1,31 @@
+//
+   Created by whistle ting on 2016/4/23.
+extends  layout
+block title
+    title register
+block content
+    form(onsubmit="return valid()",  method='post')
+        div.form-group
+            label.control-label(for='username') 用户名
+            input#username.form-control(type='text', name='username', placeholder='username', required)
+            span#username-warning.alert-warning
+        div.form-group
+            label.control-label(for='email') 邮箱
+            input#email.form-control(type='email', name='email', placeholder='email', required)
+            span#email-warning.alert-warning
+        div.form-group
+            label.control-label(for='password') 密码
+            input#password.form-control(type='password', name='password', placeholder='password', required)
+            span#password-warning.alert-warning
+        div.form-group
+            label.control-label(for='confirm-password') 确认密码
+            input#confirm-password.form-control(type='password', placeholder='confirm-password', required)
+            span#confirm-warning.alert-warning
+        div.form-group
+            label.control-label(for='codes') 验证码
+            input#codes.form-control(type='text', required)
+            span#codes-warning.alert-warning
+        div.form-group
+            input.btn.btn-default(type='submit', value='submit')
+            input.btn.btn-default(type='reset', value='reset')
+        script(src='/javascripts/registerValidate.js')

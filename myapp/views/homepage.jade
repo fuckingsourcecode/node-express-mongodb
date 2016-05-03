@@ -1,0 +1,31 @@
+extends layout
+block title
+    title homepage
+block content
+    h1= title
+    p Welcome to #{title}
+        ul
+            li
+                p hello world
+            li
+                a(href='logout') 登出
+    div#list
+        -if(blogPosts.length > 0)
+            table.table
+                thead
+                    tr
+                        th  #
+                        th  Title
+                        th  Author
+                        th  Date
+                tbody
+                    -each blogpost, i in blogPosts
+                        tr
+                            td  #{i + 1}
+                            td
+                                a(href='/blog/#{blogpost.blogTitle}/')  #{blogpost.blogTitle}
+                            td  @#{blogpost.email}
+                            td  #{blogpost.date}
+        -else
+        .alert.alert-block | There is no recent post
+

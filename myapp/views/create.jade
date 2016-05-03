@@ -1,0 +1,18 @@
+//
+   Created by whistle ting on 2016/4/25.
+extends  layout
+
+block title
+    title write
+    script(src='/assets/ckeditor-dev/ckeditor.js')
+block content
+    form(onsubmit='', method='post', role='form')
+        div.form-group
+            label(for='title') title
+            input#title.from-control(type='text', style='width:99%',name='title', required)
+        div.form-group
+            textarea#content.ckeditor(style='width:100%', name='content', required)
+            script(type="text/javascript") CKEDITOR.replace('content');
+        div.form-group
+            input.btn.btn-default(type='submit')
+            input.btn.btn-default(type='reset')
